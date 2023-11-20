@@ -2,7 +2,6 @@
 
 namespace App\Http\Middleware;
 
-use App\Enum\FranchiseType;
 use App\Helpers\Helper;
 use Closure;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
@@ -58,27 +57,17 @@ class Authenticate extends Middleware
                     //                    dd($user);
                     if (!$user->is_active
                         || $user->deleted_at != null
-                        || $user->userRole->is_active == 0
-                        || $user->franchise->status == FranchiseType::INACTIVE->value) {
+                        || $user->userRole->is_active == 0) {
                         return ['guard' => 'web', 'route' => route('backend.login')];
                     }
                 }
 
-                if ($guard == 'customer') {
+                if ($guard == 'staff') {
                     $user = Auth::guard('customer')->user();
                     if (!$user->is_active
                         || $user->deleted_at != null
                         || $user->userRole->is_active == 0) {
-                        return ['guard' => 'customer', 'route' => route('website.login')];
-                    }
-                }
-
-                if ($guard == 'supplier') {
-                    $user = Auth::guard('supplier')->user();
-                    if (!$user->is_active
-                        || $user->deleted_at != null
-                        || $user->userRole->is_active == 0) {
-                        return ['guard' => 'supplier', 'route' => route('supplier.login')];
+                        return ['guard' => 'staff', 'route' => route('website.login')];
                     }
                 }
 

@@ -2,8 +2,7 @@
 
 namespace App\Models\Common;
 
-use App\Models\Customer;
-use App\Models\Supplier;
+use App\Models\Staff;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -41,19 +40,13 @@ class TableLog extends Model
     {
         return $this->morphTo();
     }
-
-    public function customer(): BelongsTo
-    {
-        return $this->belongsTo(Customer::class, 'doer', 'customer_id')->withTrashed();
-    }
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'user_id')->withTrashed();
     }
 
-    public function supplier(): BelongsTo
+    public function staff(): BelongsTo
     {
-        return $this->belongsTo(Supplier::class, 'doer', 'supplier_id')->withTrashed();
+        return $this->belongsTo(Staff::class, 'doer', 'staff_id')->withTrashed();
     }
 }
