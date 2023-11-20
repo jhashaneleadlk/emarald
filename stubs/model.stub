@@ -1,0 +1,16 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Models\BaseModel;
+
+class {{ class }} extends BaseModel
+{
+    protected $table = '';
+    protected $primaryKey = 'id';
+    protected $keyType = 'int';
+    public $incrementing = true;
+
+    protected $guarded = [];
+
+}

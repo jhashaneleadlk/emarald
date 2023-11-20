@@ -54,6 +54,10 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
+
+            'aws_path' => env('AWS_PATH', 'https://hobby-lords.s3.ap-southeast-1.amazonaws.com/'),
+            'aws_sub_dir' => env('AWS_SUB_DIR', 'development'),
+            'file_bundle_size' => env('FILE_BUNDLE_SIZE', 50), // MB
         ],
 
     ],
