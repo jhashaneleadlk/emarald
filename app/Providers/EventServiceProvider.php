@@ -2,12 +2,6 @@
 
 namespace App\Providers;
 
-<<<<<<< HEAD
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
-use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
-=======
 use App\Listeners\DefineTransactionBatch;
 use App\Listeners\DestroyTransactionBatch;
 use Illuminate\Auth\Events\Registered;
@@ -15,7 +9,6 @@ use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Database\Events\TransactionBeginning;
 use Illuminate\Database\Events\TransactionCommitted;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
->>>>>>> dyan-dev
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -28,15 +21,12 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-<<<<<<< HEAD
-=======
         TransactionBeginning::class => [
             DefineTransactionBatch::class,
         ],
         TransactionCommitted::class => [
             DestroyTransactionBatch::class,
         ],
->>>>>>> dyan-dev
     ];
 
     /**
