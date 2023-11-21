@@ -3,6 +3,9 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\App;
+use Spatie\Permission\Exceptions\UnauthorizedException;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -25,6 +28,19 @@ class Handler extends ExceptionHandler
     {
         $this->reportable(function (Throwable $e) {
             //
+        });
+
+        if (App::environment('production')) {
+            $this->renderable(function (MethodNotAllowedHttpException $e) {
+                abort(404);
+            });
+        }
+
+        $this->renderable(function (UnauthorizedException $e) {
+            if (!request()->isMethod('GET')) {
+                return response()->json(['error' => 'You are not authorize for this action'], 403);
+            }
+            abort(403, 'You are not authorize for this action');
         });
     }
 }

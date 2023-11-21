@@ -41,7 +41,11 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
+<<<<<<< HEAD
         if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+=======
+        if (!Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+>>>>>>> dyan-dev
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
@@ -59,7 +63,11 @@ class LoginRequest extends FormRequest
      */
     public function ensureIsNotRateLimited(): void
     {
+<<<<<<< HEAD
         if (! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
+=======
+        if (!RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
+>>>>>>> dyan-dev
             return;
         }
 
