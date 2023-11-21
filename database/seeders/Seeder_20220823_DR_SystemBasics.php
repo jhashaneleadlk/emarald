@@ -25,9 +25,9 @@ class Seeder_20220823_DR_SystemBasics extends Seeder
                 'last_prkey' => '',
             ]);
             PrimaryKeyInfo::create([
-                'key' => 'STAFF',
-                'model' => "App\Models\Staff",
-                'prefix' => 'STAFF%%Y%%',
+                'key' => 'LOG',
+                'model' => "App\Models\LogMain",
+                'prefix' => 'LOG%%Y%%',
                 'field' => 'staff_id',
                 'numbof_chars' => 5,
                 'pad_sym' => '0',
