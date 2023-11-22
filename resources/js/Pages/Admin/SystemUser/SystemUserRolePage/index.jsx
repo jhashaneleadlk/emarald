@@ -42,36 +42,36 @@ const SystemUserRolePage = () => {
                 Header: 'Action',
                 accessor: 'action',
                 disableFilters: true,
-                Cell: (cellProps) => {
-                    return (
-                        <ul className="list-unstyled hstack gap-1 mb-0">
-                            <li>
-                                <Link
-                                    to="#"
-                                    className="btn btn-sm btn-soft-info"
-                                    onClick={() => {
-                                        const userData = cellProps.row.original;
-                                        handleUserEditClick(userData);
-                                    }}
-                                >
-                                    <i className="mdi mdi-pencil-outline" id="edittooltip" />
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to="#"
-                                    className="btn btn-sm btn-soft-danger"
-                                    onClick={() => {
-                                        const userData = cellProps.row.original;
-                                        handleUserEditClick(userData);
-                                    }}
-                                >
-                                    <i className="mdi mdi-delete-outline" id="deletetooltip" />
-                                </Link>
-                            </li>
-                        </ul>
-                    );
-                },
+                // Cell: (cellProps) => {
+                //     return (
+                //         <ul className="list-unstyled hstack gap-1 mb-0">
+                //             <li>
+                //                 <Link
+                //                     to="#"
+                //                     className="btn btn-sm btn-soft-info"
+                //                     onClick={() => {
+                //                         const userData = cellProps.row.original;
+                //                         handleUserEditClick(userData);
+                //                     }}
+                //                 >
+                //                     <i className="mdi mdi-pencil-outline" id="edittooltip" />
+                //                 </Link>
+                //             </li>
+                //             <li>
+                //                 <Link
+                //                     to="#"
+                //                     className="btn btn-sm btn-soft-danger"
+                //                     onClick={() => {
+                //                         const userData = cellProps.row.original;
+                //                         handleUserEditClick(userData);
+                //                     }}
+                //                 >
+                //                     <i className="mdi mdi-delete-outline" id="deletetooltip" />
+                //                 </Link>
+                //             </li>
+                //         </ul>
+                //     );
+                // },
             },
         ],
         []
@@ -102,17 +102,17 @@ const SystemUserRolePage = () => {
                             <TableControllers userRoleData={sampleData} onFilteredData={(filteredData) => setFilteredData(filteredData)}/>
                         </Col>
                     </Row>
-                    <TableContainer
-                        columns={columns}
-                        data={filteredData}
-                        isGlobalFilter={true}
-                        isAddOptions={true}
-                        handleJobClicks={handleUserEditClick}
-                        isJobListGlobalFilter={true}
-                        isPageSelect={false}
-                        customPageSize={pageSize}
-                        reponsive={true}
-                    />
+                    {/*<TableContainer*/}
+                    {/*    columns={columns}*/}
+                    {/*    data={filteredData}*/}
+                    {/*    isGlobalFilter={true}*/}
+                    {/*    isAddOptions={true}*/}
+                    {/*    handleJobClicks={handleUserEditClick}*/}
+                    {/*    isJobListGlobalFilter={true}*/}
+                    {/*    isPageSelect={false}*/}
+                    {/*    customPageSize={pageSize}*/}
+                    {/*    reponsive={true}*/}
+                    {/*/>*/}
                     {filteredData.length === 0 && (
                         <div className="text-center mt-3">No data found.</div>
                     )}

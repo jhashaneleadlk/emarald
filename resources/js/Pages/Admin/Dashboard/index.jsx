@@ -19,6 +19,7 @@ const Dashboard = props => {
     <React.Fragment>
       <div className="page-content">
         <Container fluid>
+            <button type="button" className="btn btn-primary">Primary</button>
           {/* Render Breadcrumb */}
           <Breadcrumbs
             title={props.t("Dashboards")}
